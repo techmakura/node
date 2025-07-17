@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start":"node --watch app"
+    "start": "node --watch app"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^17.2.0",
     "express": "^5.1.0"
   }
 }

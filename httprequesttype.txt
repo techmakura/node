@@ -1,0 +1,30 @@
+1. Head: preflight test
+2. Get: Receive the data from server.
+        Secured hudaina in term of sending request
+3. Post: Send data to server for creating new resource. 
+4. Put: Send data to server but to manipulate existing resource.
+5. Delete: To delete the resource. 
+
+They are protocols that we should follow. 
+
+
+Status code:
+200-299 // Success
+200 => Success
+201 => new resource created
+
+300-399 // Redirect
+301 => 
+
+400-499 // Client error (FE)
+400 => Bad request
+
+{
+    "name":"binaya",
+    "address":"kadaghari"
+}
+
+{
+    "name":"binaya"
+}
+

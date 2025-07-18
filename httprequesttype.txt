@@ -18,13 +18,13 @@ Status code:
 
 400-499 // Client error (FE)
 400 => Bad request
+401 => Unauthorized 
+403 => Forbidden
+404 => route xaina, resource xaina. 
 
-{
-    "name":"binaya",
-    "address":"kadaghari"
-}
+500 <
+Server error
+501 service not available
+503 server not avaialbe. 
 
-{
-    "name":"binaya"
-}
 

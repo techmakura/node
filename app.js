@@ -5,6 +5,13 @@ const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
 require('dotenv').config();
 
+const studentRoutes = require('./routes/student.routes');
+const userRoutes = require('./routes/user.routes');
+
+// Route use
+app.use('/students', studentRoutes);
+app.use('/user', userRoutes);
+
 const PORT = process.env.PORT;
 const API_KEY = process.env.AUTH_TOKEN;
 const MONGOURL = process.env.MONGO_URL || "mongodb://localhost:27017/spa";

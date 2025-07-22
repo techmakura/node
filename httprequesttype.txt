@@ -2,7 +2,7 @@
 2. Get: Receive the data from server.
         Secured hudaina in term of sending request
 3. Post: Send data to server for creating new resource. 
-4. Put: Send data to server but to manipulate existing resource.
+4. Put: Send data to server but to manipulate/update existing resource.
 5. Delete: To delete the resource. 
 
 They are protocols that we should follow. 

@@ -87,4 +87,18 @@ router.put('/:id', auth, async (req, res) => {
     }
 });
 
+router.delete("/:id", auth, async (req, res) => {
+    try {
+        const student = await Student.findById(req.params.id);
+        if(student){
+          await Student.findOneAndDelete({ _id: req.params.id });
+          res.status(200).send("Successfully deleted the student");
+        }else{
+            res.status(404).send("Student with the provided id not found")
+        }
+    } catch (err) {
+        res.status(400).json({ error: err.message })
+    }
+})
+
 module.exports = router;

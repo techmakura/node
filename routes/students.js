@@ -1,7 +1,20 @@
 const express = require('express');
+const multer = require('multer');
 const router = express.Router();
 const auth = require('../middleware/auth');
 const Student = require('../model/Students');
+const path = require("path");
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, path.join(__dirname, '../public/uploads'));
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + '-' + file.originalname); // Unique file name
+  }
+});
+
+const upload = multer({ storage: storage });
 
 // Get all students
 router.get('/', auth, async (req, res) => {
@@ -100,5 +113,20 @@ router.delete("/:id", auth, async (req, res) => {
         res.status(400).json({ error: err.message })
     }
 })
+
+router.post('/upload', auth, upload.single('image'), async (req, res) => {
+    try {
+        const image = req.file ? req.file.filename : null; // get the filename
+
+        const student = new Student({
+            image
+        });
+
+        await student.save();
+        res.status(201).json({ success: 'Student created with image!', student });
+    } catch (err) {
+        res.status(400).json({ error: err.message });
+    }
+});
 
 module.exports = router;

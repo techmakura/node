@@ -5,7 +5,8 @@ const CoursesSchema = mongoose.Schema({
     "name": String,
     "duration": Number,
     "eligibility": String,
-    "code": String
+    "code": String,
+    "genre": Object
 })
 
 const CourseModel = mongoose.model("courses", CoursesSchema);
